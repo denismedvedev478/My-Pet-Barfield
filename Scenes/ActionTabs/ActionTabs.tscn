@@ -1,0 +1,251 @@
+[gd_scene load_steps=9 format=3 uid="uid://de56infh1o8h2"]
+
+[ext_resource type="PackedScene" uid="uid://ceah74fjic6d8" path="res://Scenes/ActionTabs/feed_buttons_container.tscn" id="1_fgnqa"]
+[ext_resource type="Theme" uid="uid://cl6g0lyje5r7f" path="res://Assets/start_menu.tres" id="1_wd1a8"]
+[ext_resource type="PackedScene" uid="uid://uw6eeuopfaob" path="res://Scenes/ActionTabs/heal_buttons_container.tscn" id="2_hpxby"]
+[ext_resource type="Script" path="res://Scripts/ActionTabs/HealButton.gd" id="3_chy6j"]
+[ext_resource type="PackedScene" uid="uid://bs64whf8o5nsh" path="res://Scenes/ActionTabs/bath_buttons_container.tscn" id="3_g3sfv"]
+[ext_resource type="PackedScene" uid="uid://d3pc0ak8uvaph" path="res://Scenes/ActionTabs/entertainment_buttons_container.tscn" id="4_d3mff"]
+[ext_resource type="Script" path="res://Scripts/ActionTabs/BathButton.gd" id="5_22t2v"]
+[ext_resource type="Script" path="res://Scripts/ActionTabs/EntertainmentButton1.gd" id="7_k0rri"]
+
+[node name="ActionTabs" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wd1a8")
+
+[node name="Feed" type="TabBar" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Feed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Feed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_wd1a8")
+
+[node name="Description" type="RichTextLabel" parent="Feed/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wd1a8")
+text = "покормите КОТА
+"
+
+[node name="Hint" type="RichTextLabel" parent="Feed/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme = ExtResource("1_wd1a8")
+fit_content = true
+scroll_active = false
+
+[node name="FeedButtonsContainer" parent="Feed/HBoxContainer" instance=ExtResource("1_fgnqa")]
+layout_mode = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="FeedButtonLasagna" parent="Feed/HBoxContainer/FeedButtonsContainer" index="0"]
+theme = ExtResource("1_wd1a8")
+description_text = "EAT LASAG........ my biggest mistake"
+food_amount = 20
+
+[node name="FeedButton2" parent="Feed/HBoxContainer/FeedButtonsContainer" index="1"]
+theme = ExtResource("1_wd1a8")
+text = "EAT OGUZOK"
+description_text = "BETTER THAN LASANAG (does not kill you)"
+food_amount = 20
+unhealth_amount = -3
+
+[node name="FeedButton3" parent="Feed/HBoxContainer/FeedButtonsContainer" index="2"]
+theme = ExtResource("1_wd1a8")
+text = "EAT YUMMERS"
+description_text = "ОЧЕНЬ ВКУСНО"
+food_amount = 5
+unhealth_amount = -20
+
+[node name="FeedButtonSpaghetti" parent="Feed/HBoxContainer/FeedButtonsContainer" index="3"]
+theme = ExtResource("1_wd1a8")
+text = "Eat Sphagetit"
+description_text = "EAT SPAGATTI"
+food_amount = 10
+
+[node name="FeedButtonWater" parent="Feed/HBoxContainer/FeedButtonsContainer" index="4"]
+theme = ExtResource("1_wd1a8")
+food_amount = 6
+
+[node name="Heal" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Heal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Heal/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_wd1a8")
+
+[node name="Description" type="RichTextLabel" parent="Heal/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wd1a8")
+text = "полечите КОТА
+"
+
+[node name="Hint" type="RichTextLabel" parent="Heal/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme = ExtResource("1_wd1a8")
+fit_content = true
+scroll_active = false
+
+[node name="HealButtonsContainer" parent="Heal/HBoxContainer" instance=ExtResource("2_hpxby")]
+layout_mode = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="HealButton" parent="Heal/HBoxContainer/HealButtonsContainer" index="0"]
+theme = ExtResource("1_wd1a8")
+script = ExtResource("3_chy6j")
+description_text = "HEAL YOUR PUSSY"
+amount = 10
+
+[node name="CureButton" parent="Heal/HBoxContainer/HealButtonsContainer" index="1"]
+theme = ExtResource("1_wd1a8")
+text = "CURE"
+script = ExtResource("3_chy6j")
+description_text = "CURE YOUTR PUYSS"
+amount = 5
+
+[node name="Bath" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bath"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bath/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_wd1a8")
+
+[node name="Description" type="RichTextLabel" parent="Bath/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wd1a8")
+text = "помойте КОТА
+"
+
+[node name="Hint" type="RichTextLabel" parent="Bath/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme = ExtResource("1_wd1a8")
+fit_content = true
+scroll_active = false
+
+[node name="BathButtonsContainer" parent="Bath/HBoxContainer" instance=ExtResource("3_g3sfv")]
+layout_mode = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="BathButton" parent="Bath/HBoxContainer/BathButtonsContainer" index="0"]
+theme = ExtResource("1_wd1a8")
+text = "Bath
+"
+script = ExtResource("5_22t2v")
+description_text = "Wash the cat"
+amount = 70
+
+[node name="ToiletButton2" parent="Bath/HBoxContainer/BathButtonsContainer" index="1"]
+theme = ExtResource("1_wd1a8")
+script = ExtResource("5_22t2v")
+description_text = "=)"
+amount = 2
+
+[node name="Entertainment" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Entertainment"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Entertainment/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_wd1a8")
+
+[node name="Description" type="RichTextLabel" parent="Entertainment/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wd1a8")
+text = "поиграте КОТА
+"
+
+[node name="Hint" type="RichTextLabel" parent="Entertainment/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme = ExtResource("1_wd1a8")
+fit_content = true
+scroll_active = false
+
+[node name="EntertainmentButtonsContainer" parent="Entertainment/HBoxContainer" instance=ExtResource("4_d3mff")]
+layout_mode = 2
+theme = ExtResource("1_wd1a8")
+
+[node name="EntertainmentButton1" parent="Entertainment/HBoxContainer/EntertainmentButtonsContainer" index="0"]
+theme = ExtResource("1_wd1a8")
+text = "DOTA 2
+"
+script = ExtResource("7_k0rri")
+description_text = "jopa 2"
+happiness_amount = 40
+unhealth_amount = -10
+
+[node name="EntertainmentButton2" parent="Entertainment/HBoxContainer/EntertainmentButtonsContainer" index="1"]
+theme = ExtResource("1_wd1a8")
+text = "MINECRAF"
+script = ExtResource("7_k0rri")
+description_text = "DIG DIAMONDS"
+happiness_amount = 20
+unhealth_amount = -5
+
+[editable path="Feed/HBoxContainer/FeedButtonsContainer"]
+[editable path="Heal/HBoxContainer/HealButtonsContainer"]
+[editable path="Bath/HBoxContainer/BathButtonsContainer"]
+[editable path="Entertainment/HBoxContainer/EntertainmentButtonsContainer"]

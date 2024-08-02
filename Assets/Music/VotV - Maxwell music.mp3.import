@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c878xb0mwdia8"
+path="res://.godot/imported/VotV - Maxwell music.mp3-65630bad3bbad81cf9ca22f54a7e6451.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/VotV - Maxwell music.mp3"
+dest_files=["res://.godot/imported/VotV - Maxwell music.mp3-65630bad3bbad81cf9ca22f54a7e6451.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

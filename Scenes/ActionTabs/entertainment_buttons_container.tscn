@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3pc0ak8uvaph"]
+
+[ext_resource type="Script" path="res://Scripts/ActionTabs/FeedButton.gd" id="1_60kfi"]
+
+[node name="EntertainmentButtonsContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="EntertainmentButton1" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Entertainment1
+"
+script = ExtResource("1_60kfi")
+amount = 45
+
+[node name="EntertainmentButton2" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Entertainment2"
+script = ExtResource("1_60kfi")
+amount = 45
+
+[connection signal="button_down" from="EntertainmentButton1" to="EntertainmentButton1" method="_on_button_down"]
+[connection signal="button_down" from="EntertainmentButton2" to="EntertainmentButton2" method="_on_button_down"]

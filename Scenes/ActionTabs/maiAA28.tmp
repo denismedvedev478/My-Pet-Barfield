@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkcd235cwwnff"]
+
+[ext_resource type="Script" path="res://Scripts/ActionTabs/main_tamagochi.gd" id="1_adxle"]
+[ext_resource type="PackedScene" uid="uid://dgtdrpvfxabhh" path="res://Scenes/GUI.tscn" id="1_b0kxn"]
+[ext_resource type="Texture2D" uid="uid://4t4xxijr1axg" path="res://TestAssets/barfield/bathroom.png" id="2_auvk5"]
+[ext_resource type="Texture2D" uid="uid://cjiqwbgblim3o" path="res://TestAssets/barfield/room.png" id="2_pgtec"]
+[ext_resource type="Texture2D" uid="uid://bjswp0mwxr432" path="res://TestAssets/barfield/kitchen.png" id="3_78o11"]
+[ext_resource type="Texture2D" uid="uid://b761okovqt1nj" path="res://TestAssets/barfield/surgery.png" id="3_dd8rq"]
+
+[node name="MainTamagochi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adxle")
+
+[node name="GUI" parent="." instance=ExtResource("1_b0kxn")]
+layout_mode = 1
+
+[node name="DarkenBG" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.137255)
+
+[node name="FeedBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_78o11")
+
+[node name="HealBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 2.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dd8rq")
+
+[node name="BathBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_auvk5")
+
+[node name="EntertainmentBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 2.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pgtec")
+
+[connection signal="tab_changed" from="GUI/ActionTabs" to="." method="_on_action_tabs_tab_changed"]
+
+[editable path="GUI"]

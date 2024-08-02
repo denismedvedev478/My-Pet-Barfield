@@ -1,0 +1,239 @@
+[gd_scene load_steps=6 format=3 uid="uid://rbd8fb21a1df"]
+
+[ext_resource type="Theme" uid="uid://cl6g0lyje5r7f" path="res://Assets/start_menu.tres" id="1_ejgiw"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="2_x7o6c"]
+
+[sub_resource type="Animation" id="Animation_xkgsq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Darken:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.235294)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarCont_PlayButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(175, 219)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarCont_SettingsButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(175, 355)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarCont_ExitButton:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-240, 491), Vector2(175, 491)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarCont_ExitButton:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 120)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarCont_SettingsButton:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 120)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarCont_PlayButton:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_0jcsu"]
+resource_name = "open pause menu"
+length = 2.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Darken:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 13.4544),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.627451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarCont_PlayButton:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.8),
+"transitions": PackedFloat32Array(1, 0.594604, 0.549033),
+"update": 0,
+"values": [Vector2(-240, 219), Vector2(250, 219), Vector2(175, 219)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarCont_SettingsButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1.2, 2),
+"transitions": PackedFloat32Array(1, 0.554784, 0.535888),
+"update": 0,
+"values": [Vector2(-240, 355), Vector2(200, 355), Vector2(175, 355)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarCont_ExitButton:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 1.4, 2.2),
+"transitions": PackedFloat32Array(1, 0.594604, 0.554785),
+"update": 0,
+"values": [Vector2(-240, 491), Vector2(150, 491), Vector2(175, 491)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a356f"]
+_data = {
+"RESET": SubResource("Animation_xkgsq"),
+"open pause menu": SubResource("Animation_0jcsu")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ejgiw")
+script = ExtResource("2_x7o6c")
+
+[node name="Darken" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.235294)
+
+[node name="MarCont_PlayButton" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 175.0
+offset_top = 219.0
+offset_right = -721.0
+offset_bottom = -309.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="MarCont_PlayButton"]
+layout_mode = 2
+text = "ИГРАТ
+"
+
+[node name="MarCont_SettingsButton" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 175.0
+offset_top = 355.0
+offset_right = -721.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsButton" type="Button" parent="MarCont_SettingsButton"]
+layout_mode = 2
+text = "НАСТРОЯКИ
+"
+
+[node name="MarCont_ExitButton" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = 491.0
+offset_right = -1136.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="MarCont_ExitButton"]
+layout_mode = 2
+text = "КАК ВЫЙТТ
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a356f")
+}
+autoplay = "open pause menu"
+speed_scale = 3.2
+
+[connection signal="pressed" from="MarCont_PlayButton/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarCont_SettingsButton/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarCont_ExitButton/ExitButton" to="." method="_on_exit_button_pressed"]

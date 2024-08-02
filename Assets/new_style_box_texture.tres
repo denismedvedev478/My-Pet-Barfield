@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bpxpbg18x7wn8"]
+
+[ext_resource type="Texture2D" uid="uid://d250sh6nvalph" path="res://TestAssets/barfield/StyleBoxTheme1.png" id="1_b7qpt"]
+
+[resource]
+texture = ExtResource("1_b7qpt")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

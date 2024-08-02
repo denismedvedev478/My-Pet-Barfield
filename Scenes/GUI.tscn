@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgtdrpvfxabhh"]
+
+[ext_resource type="Theme" uid="uid://cl6g0lyje5r7f" path="res://Assets/start_menu.tres" id="1_dr8th"]
+[ext_resource type="PackedScene" uid="uid://cpre633vh8yrk" path="res://Scenes/Bars.tscn" id="1_gtyli"]
+[ext_resource type="PackedScene" uid="uid://de56infh1o8h2" path="res://Scenes/ActionTabs/ActionTabs.tscn" id="2_1fydc"]
+[ext_resource type="Script" path="res://Scripts/PauseButton.gd" id="2_mr5hs"]
+[ext_resource type="Script" path="res://Scripts/GUI/TimerProgressBar.gd" id="3_ms356"]
+[ext_resource type="PackedScene" uid="uid://deq3wlwjnmeow" path="res://Scenes/ActionTabs/ActionTabs-2.tscn" id="5_x762i"]
+
+[node name="GUI" type="VBoxContainer"]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_dr8th")
+
+[node name="PauseButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("1_dr8th")
+text = " - "
+script = ExtResource("2_mr5hs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "sandglass"
+
+[node name="TimerProgressBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
+process_thread_group = 1
+process_thread_group_order = 1
+process_thread_messages = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+theme = ExtResource("1_dr8th")
+max_value = 10.0
+step = 0.0
+show_percentage = false
+script = ExtResource("3_ms356")
+
+[node name="Bars" parent="HBoxContainer" instance=ExtResource("1_gtyli")]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 10.18
+
+[node name="Panel" type="ReferenceRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.63
+theme = ExtResource("1_dr8th")
+
+[node name="Spawnpoint" type="Node2D" parent="Panel"]
+position = Vector2(585, 195)
+
+[node name="ActionTabs2" parent="." instance=ExtResource("5_x762i")]
+visible = false
+layout_mode = 2
+size_flags_stretch_ratio = 5.11
+theme = ExtResource("1_dr8th")
+
+[node name="ActionTabs" parent="." instance=ExtResource("2_1fydc")]
+layout_mode = 2
+size_flags_stretch_ratio = 3.5

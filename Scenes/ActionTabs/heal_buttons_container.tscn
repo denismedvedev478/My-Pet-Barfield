@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://uw6eeuopfaob"]
+
+[ext_resource type="Script" path="res://Scripts/ActionTabs/FeedButton.gd" id="1_3ggq8"]
+
+[node name="HealButtonsContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HealButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Heal"
+script = ExtResource("1_3ggq8")
+amount = 45
+
+[node name="CureButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Heal"
+script = ExtResource("1_3ggq8")
+amount = 45
+
+[connection signal="button_down" from="HealButton" to="HealButton" method="_on_button_down"]
+[connection signal="button_down" from="CureButton" to="CureButton" method="_on_button_down"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceah74fjic6d8"]
+
+[ext_resource type="Script" path="res://Scripts/ActionTabs/FeedButton.gd" id="1_4njqx"]
+[ext_resource type="Script" path="res://Scripts/ActionTabs/feed_buttons_container.gd" id="1_tbxj1"]
+
+[node name="FeedButtonsContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+script = ExtResource("1_tbxj1")
+
+[node name="FeedButtonLasagna" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Eat Lasagna"
+script = ExtResource("1_4njqx")
+food_amount = 40.0
+
+[node name="FeedButton2" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Eat Food №2
+"
+script = ExtResource("1_4njqx")
+food_amount = 30.0
+
+[node name="FeedButton3" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Eat Food №3
+"
+script = ExtResource("1_4njqx")
+food_amount = 20.0
+
+[node name="FeedButtonSpaghetti" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Eat Sphagetti"
+script = ExtResource("1_4njqx")
+food_amount = 15.0
+
+[node name="FeedButtonWater" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Drink water
+"
+script = ExtResource("1_4njqx")
+food_amount = 3.0
+
+[connection signal="button_down" from="FeedButtonLasagna" to="FeedButtonLasagna" method="_on_button_down"]
+[connection signal="button_down" from="FeedButton2" to="FeedButton2" method="_on_button_down"]
+[connection signal="button_down" from="FeedButton3" to="FeedButton3" method="_on_button_down"]
+[connection signal="button_down" from="FeedButtonSpaghetti" to="FeedButtonSpaghetti" method="_on_button_down"]
+[connection signal="button_down" from="FeedButtonWater" to="FeedButtonWater" method="_on_button_down"]

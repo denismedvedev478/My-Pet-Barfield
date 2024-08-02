@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkcd235cwwnff"]
+
+[ext_resource type="Script" path="res://Scripts/ActionTabs/main_tamagochi.gd" id="1_r3l3k"]
+[ext_resource type="PackedScene" uid="uid://dgtdrpvfxabhh" path="res://Scenes/GUI.tscn" id="2_cikhp"]
+[ext_resource type="Texture2D" uid="uid://bjswp0mwxr432" path="res://TestAssets/barfield/kitchen.png" id="3_1in76"]
+[ext_resource type="AudioStream" uid="uid://bfyqp3ccmyjg0" path="res://Assets/Music/Кухня Веселая тема.mp3" id="3_2hjou"]
+[ext_resource type="Texture2D" uid="uid://b761okovqt1nj" path="res://TestAssets/barfield/surgery.png" id="4_fycsj"]
+[ext_resource type="Texture2D" uid="uid://4t4xxijr1axg" path="res://TestAssets/barfield/bathroom.png" id="5_chf72"]
+[ext_resource type="AudioStream" uid="uid://c5rpsl16lshm3" path="res://Assets/Music/Интерны.mp3" id="5_jl7o2"]
+[ext_resource type="Texture2D" uid="uid://cjiqwbgblim3o" path="res://TestAssets/barfield/room.png" id="6_nnssj"]
+[ext_resource type="AudioStream" uid="uid://bi54448vk3kba" path="res://Assets/Music/Говновоз, но это русский пост-панк.mp3" id="7_0gs7b"]
+[ext_resource type="AudioStream" uid="uid://c878xb0mwdia8" path="res://Assets/Music/VotV - Maxwell music.mp3" id="7_yxj0h"]
+[ext_resource type="Theme" uid="uid://cl6g0lyje5r7f" path="res://Assets/start_menu.tres" id="11_j25ja"]
+
+[node name="MainTamagochi" type="Control" node_paths=PackedStringArray("current_bg")]
+process_mode = 1
+process_priority = -1
+process_thread_group = 2
+process_thread_group_order = 1
+process_thread_messages = 0
+z_index = 1
+texture_filter = 3
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_r3l3k")
+current_bg = NodePath("FeedBG")
+
+[node name="DarkenBG" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.180392)
+
+[node name="FeedBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1in76")
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="FeedBG"]
+stream = ExtResource("3_2hjou")
+max_polyphony = 8
+bus = &"Music"
+
+[node name="HealBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fycsj")
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="HealBG"]
+stream = ExtResource("5_jl7o2")
+bus = &"Music"
+
+[node name="BathBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_chf72")
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="BathBG"]
+stream = ExtResource("7_0gs7b")
+bus = &"Music"
+
+[node name="EntertainmentBG" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_nnssj")
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="EntertainmentBG"]
+stream = ExtResource("7_yxj0h")
+bus = &"Music"
+
+[node name="GUI" parent="." instance=ExtResource("2_cikhp")]
+layout_mode = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource("11_j25ja")
+metadata/_edit_group_ = true
+
+[connection signal="tab_changed" from="GUI/ActionTabs" to="." method="_on_action_tabs_tab_changed"]
+
+[editable path="GUI"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://deq3wlwjnmeow"]
+
+[ext_resource type="PackedScene" uid="uid://ceah74fjic6d8" path="res://Scenes/ActionTabs/feed_buttons_container.tscn" id="1_3o3nu"]
+
+[node name="ActionTabs" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Feed" type="TabBar" parent="."]
+layout_mode = 2
+clip_tabs = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Feed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Feed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Description" type="RichTextLabel" parent="Feed/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "покормите КОТА
+"
+
+[node name="Hint" type="RichTextLabel" parent="Feed/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+fit_content = true
+scroll_active = false
+
+[node name="FeedButtonsContainer" parent="Feed/HBoxContainer" instance=ExtResource("1_3o3nu")]
+layout_mode = 2
+
+[node name="FeedButtonLasagna" parent="Feed/HBoxContainer/FeedButtonsContainer" index="0"]
+description_text = "EAT LASAG........ my biggest mistake"
+unhealth_amount = -20.0
+
+[node name="FeedButton2" parent="Feed/HBoxContainer/FeedButtonsContainer" index="1"]
+description_text = "BETTER THAN LASANAG (does not kill you)"
+food_amount = 25.0
+
+[node name="FeedButton3" parent="Feed/HBoxContainer/FeedButtonsContainer" index="2"]
+description_text = "food №3"
+food_amount = 15.0
+unhealth_amount = -3.0
+
+[node name="FeedButtonSpaghetti" parent="Feed/HBoxContainer/FeedButtonsContainer" index="3"]
+description_text = "EAT SPAGATTI"
+food_amount = 10.0
+unhealth_amount = -1.0
+
+[node name="FeedButtonWater" parent="Feed/HBoxContainer/FeedButtonsContainer" index="4"]
+description_text = "ПЕЙТЕ ДЕТИ МОЛОКО ТУАЛЕТ НЕДАЛЕКО"
+
+[editable path="Feed/HBoxContainer/FeedButtonsContainer"]

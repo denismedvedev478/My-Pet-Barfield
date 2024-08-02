@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="My Pet Barfield"
+config/tags=PackedStringArray("fav")
+run/main_scene="res://Scenes/EmptyScene.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+config/icon="res://Assets/icon.png"
+
+[autoload]
+
+Main="*res://Scenes/Main.tscn"
+Loader="*res://Scenes/Loader.tscn"
+Player="*res://Scenes/player.tscn"
+Debug="*res://Scenes/Debug.tscn"
+SfxSounds="*res://Scripts/SFX_sounds.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="My Pet Barfield"

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://djmcmd2hds46w"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_egrly"]
+[ext_resource type="Texture2D" uid="uid://bdvrpakf84oni" path="res://Assets/Garfield-States/garfield with lasagna.png" id="1_mboc3"]
+[ext_resource type="Texture2D" uid="uid://7ah8evbjqq6i" path="res://Assets/Garfield-States/grumpy.png" id="2_306nh"]
+[ext_resource type="Texture2D" uid="uid://gid3modiu4qx" path="res://Assets/Garfield-States/happy.png" id="13_yibv7"]
+[ext_resource type="Texture2D" uid="uid://nskf3r46wh2x" path="res://Assets/Garfield-States/idle.png" id="14_j6nu2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yekvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mboc3")
+}],
+"loop": true,
+"name": &"eat",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_306nh")
+}],
+"loop": true,
+"name": &"grumpy",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_yibv7")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_j6nu2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="Player" type="AnimatedSprite2D"]
+texture_filter = 3
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_yekvf")
+animation = &"idle"
+script = ExtResource("1_egrly")
+
+[node name="TimerUpdater" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="TimerUpdater" to="." method="_on_timer_updater_timeout"]

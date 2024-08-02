@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi54448vk3kba"
+path="res://.godot/imported/Говновоз, но это русский пост-панк.mp3-b7a854ece5dafb88a8e64c029de087ba.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Говновоз, но это русский пост-панк.mp3"
+dest_files=["res://.godot/imported/Говновоз, но это русский пост-панк.mp3-b7a854ece5dafb88a8e64c029de087ba.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpre633vh8yrk"]
+
+[ext_resource type="Script" path="res://Scripts/FoodBar.gd" id="1_7k0xq"]
+[ext_resource type="Theme" uid="uid://cl6g0lyje5r7f" path="res://Assets/start_menu.tres" id="1_gpu8m"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="2_ml2y2"]
+[ext_resource type="Script" path="res://Scripts/HygieneBar.gd" id="3_8uygs"]
+[ext_resource type="Script" path="res://Scripts/HappinessBar.gd" id="4_iswax"]
+
+[node name="Bars" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.047
+offset_bottom = -0.280006
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_gpu8m")
+
+[node name="HBoxFood" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_gpu8m")
+
+[node name="Food" type="Label" parent="HBoxFood"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme = ExtResource("1_gpu8m")
+text = "Food
+"
+vertical_alignment = 1
+
+[node name="FoodBar" type="ProgressBar" parent="HBoxFood"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme = ExtResource("1_gpu8m")
+script = ExtResource("1_7k0xq")
+
+[node name="HBoxHealth" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_gpu8m")
+
+[node name="Health" type="Label" parent="HBoxHealth"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme = ExtResource("1_gpu8m")
+text = "Health"
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="HBoxHealth"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme = ExtResource("1_gpu8m")
+script = ExtResource("2_ml2y2")
+
+[node name="HBoxHygiene" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_gpu8m")
+
+[node name="Hygiene" type="Label" parent="HBoxHygiene"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme = ExtResource("1_gpu8m")
+text = "Hygiene"
+vertical_alignment = 1
+
+[node name="HygieneBar" type="ProgressBar" parent="HBoxHygiene"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme = ExtResource("1_gpu8m")
+script = ExtResource("3_8uygs")
+
+[node name="HBoxHappiness" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_gpu8m")
+
+[node name="Happiness" type="Label" parent="HBoxHappiness"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme = ExtResource("1_gpu8m")
+text = "Happiness
+"
+vertical_alignment = 1
+
+[node name="HappinessBar" type="ProgressBar" parent="HBoxHappiness"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme = ExtResource("1_gpu8m")
+script = ExtResource("4_iswax")

@@ -1,0 +1,151 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddgul8an31uyl"]
+
+[ext_resource type="Script" path="res://Scripts/DeathScene.gd" id="1_ru3lm"]
+[ext_resource type="Texture2D" uid="uid://boxaa12pocdgx" path="res://Assets/DeathScreens/window.jpg" id="2_jfcc2"]
+[ext_resource type="Texture2D" uid="uid://ffksiqhwo50m" path="res://Assets/DeathScreens/starvation.jpg" id="3_usdgm"]
+[ext_resource type="Texture2D" uid="uid://dihgos4i4inv4" path="res://Assets/DeathScreens/hygiene_death.jpg" id="4_t2e3j"]
+[ext_resource type="Texture2D" uid="uid://drrjwr0kuq6x4" path="res://Assets/DeathScreens/boredom.jpg" id="5_3oblt"]
+[ext_resource type="Script" path="res://Scripts/TextureRectDeathScene.gd" id="6_3hpow"]
+[ext_resource type="Texture2D" uid="uid://tov5ib3e5smf" path="res://icon.svg" id="6_dd5d7"]
+[ext_resource type="FontFile" uid="uid://bs6lt3s5cgko1" path="res://Assets/EpilepsySans.ttf" id="6_m7b40"]
+[ext_resource type="AudioStream" uid="uid://iu55lc05be7u" path="res://Assets/Music/death-scene.ogg" id="8_8veor"]
+
+[sub_resource type="Gradient" id="Gradient_su0ne"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnn1a"]
+gradient = SubResource("Gradient_su0ne")
+
+[sub_resource type="Animation" id="Animation_0q6m8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3i7qo"]
+resource_name = "play death scene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 7.5, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bscvo"]
+_data = {
+"RESET": SubResource("Animation_0q6m8"),
+"play death scene": SubResource("Animation_3i7qo")
+}
+
+[node name="DeathScene" type="Control"]
+process_mode = 3
+process_thread_group = 1
+process_thread_group_order = 1
+process_thread_messages = 0
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ru3lm")
+pictures = {
+"happiness_wasted": ExtResource("5_3oblt"),
+"health_wasted": ExtResource("2_jfcc2"),
+"hygiene_wasted": ExtResource("4_t2e3j"),
+"saturation_wasted": ExtResource("3_usdgm")
+}
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dd5d7")
+stretch_mode = 5
+script = ExtResource("6_3hpow")
+
+[node name="BlackScreen" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_jnn1a")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 326.0
+offset_top = 300.0
+offset_right = -326.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("6_m7b40")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bscvo")
+}
+autoplay = "RESET"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8veor")

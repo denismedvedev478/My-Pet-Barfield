@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs64whf8o5nsh"]
+
+[ext_resource type="Script" path="res://Scripts/ActionTabs/FeedButton.gd" id="1_48uo8"]
+
+[node name="BathButtonsContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="BathButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Bath"
+script = ExtResource("1_48uo8")
+amount = 45
+
+[node name="ToiletButton2" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Go to the toilet"
+script = ExtResource("1_48uo8")
+amount = 45
+
+[connection signal="button_down" from="BathButton" to="BathButton" method="_on_button_down"]
+[connection signal="button_down" from="ToiletButton2" to="ToiletButton2" method="_on_button_down"]
